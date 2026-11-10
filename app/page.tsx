@@ -1,69 +1,118 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const divisions = [
+  {
+    title: "Centre de formation",
+    description:
+      "Développez vos compétences grâce à nos formations professionnelles et pratiques.",
+    image: "/assets/formationstylismetmodelisme.jpg",
+    href: "/formations",
+    action: "Découvrir nos formations",
+  },
+  {
+    title: "Prestations de services",
+    description:
+      "Bénéficiez de prestations professionnelles dans nos différents domaines d'expertise.",
+    image: "/assets/prestationcoiffurefemme.jpg",
+    href: "/prestations",
+    action: "Découvrir nos services",
+  },
+  {
+    title: "E-Shop / Boutique",
+    description:
+      "Découvrez notre sélection de produits, accessoires, beauté et équipements.",
+    image: "/assets/boutiqueecranetbaffle.jpg",
+    href: "/boutique",
+    action: "Visiter la boutique",
+  },
+  {
+    title: "Immigration",
+    description:
+      "Découvrez nos services d'accompagnement pour vos projets et opportunités à l'international.",
+    image: "/assets/headerimage3.jpeg",
+    href: "/immigration",
+    action: "En savoir plus",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className="hero">
+        <div className="hero-overlay">
+          <div className="hero-content">
+            <span className="hero-label">BIENVENUE CHEZ NEW FASHION</span>
+            <h1>
+              Votre avenir,
+              <br />
+              notre passion.
+            </h1>
+            <p>
+              Formation professionnelle, prestations de services, boutique
+              et accompagnement international : découvrez les quatre univers
+              de New Fashion.
+            </p>
+
+            <div className="hero-actions">
+              <Link href="/formations" className="primary-button">
+                Découvrir nos formations
+              </Link>
+              <Link href="/contact" className="secondary-button">
+                Nous contacter
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="intro-section">
+        <span className="section-label">NEW FASHION</span>
+        <h2>Bien plus qu'un centre de formation</h2>
+        <p>
+          New Fashion rassemble quatre divisions complémentaires pour
+          accompagner vos ambitions, développer vos compétences et répondre
+          à vos besoins.
+        </p>
+      </section>
+
+      <section className="divisions-section">
+        <div className="section-heading">
+          <span className="section-label">NOS ACTIVITÉS</span>
+          <h2>Découvrez nos quatre divisions</h2>
+        </div>
+
+        <div className="division-grid">
+          {divisions.map((division) => (
+            <article className="division-card" key={division.href}>
+              <img src={division.image} alt={division.title} />
+              <div className="division-card-content">
+                <h3>{division.title}</h3>
+                <p>{division.description}</p>
+                <Link href={division.href}>{division.action} →</Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="registration-section">
+        <div>
+          <span className="section-label">PASSEZ À L'ACTION</span>
+          <h2>Votre prochaine étape commence ici.</h2>
+          <p>
+            Contactez New Fashion pour obtenir des informations sur nos
+            formations, nos services, nos produits et nos prestations
+            d'accompagnement.
           </p>
+          <Link href="/contact" className="primary-button">
+            Contactez-nous
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        <img
+          src="/assets/aboutregistration.jpeg"
+          alt="Informations sur les inscriptions New Fashion"
+        />
+      </section>
+    </>
   );
 }
