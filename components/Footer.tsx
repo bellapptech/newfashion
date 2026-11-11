@@ -35,7 +35,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} New Fashion. Tous droits réservés.
+      © 2026 New Fashion. Tous droits réservés.
       </div>
     </footer>
   );
